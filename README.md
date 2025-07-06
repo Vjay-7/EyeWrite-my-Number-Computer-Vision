@@ -22,3 +22,26 @@ Install the following Python libraries before running:
 
 ```bash
 pip install opencv-python mediapipe numpy onnxruntime
+
+
+## 🐳 How to Run with Docker
+
+### ✅ Prerequisites
+
+- Docker installed on your system
+- Webcam connected to your computer
+- Linux/Windows/macOS with GUI (X11) support
+
+### ▶️ Running the Application
+
+Pull and run the Docker image:
+
+```bash
+# Example command to pull and run the Docker container
+docker pull your-dockerhub-username/eyewrite-number-vision:latest
+xhost +local:docker
+docker run -it --rm \
+  --device /dev/video0 \
+  -e DISPLAY=$DISPLAY \
+  -v /tmp/.X11-unix:/tmp/.X11-unix \
+  your-dockerhub-username/eyewrite-number-vision:latest
